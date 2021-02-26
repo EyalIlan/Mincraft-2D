@@ -1,0 +1,90 @@
+
+/* .MainContainer{
+  
+} */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  display: flex;
+ 
+  /* height: 100vh; */
+  flex-direction: row;
+}
+
+
+#MainContainer{
+    display: grid;
+    grid-template-columns: repeat(30,1fr); 
+    grid-template-rows: repeat(20,1fr); 
+    height: 100vh;
+    width: 85vw;
+}
+
+#MainContainer div{
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+
+#MainContainer div:hover{
+    border: 2px solid white;
+}
+
+
+#tools-bar{
+    display: inline-block;
+    width:15vw;
+    height: 100vh;
+    background: #312450;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+.box{
+   margin-top: 5%;
+   width: 80%;
+   height: 20%;
+   border: 2px solid white; 
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  
+}
+
+
+.box img{
+    
+    height: 70%;
+}
+
+.sky{
+    background-color: rgb(119, 206, 246);
+}
+
+.ground{
+   background-image: url('../images/soil.jpg');
+}
+
+.cloud{
+    background-image: url('../images/cloud.png');
+    
+}
+
+.grass{
+    background-image: url('../images/grass.png');
+}
+
+.stone{
+    background-image: url('../images/rock.png');
+}

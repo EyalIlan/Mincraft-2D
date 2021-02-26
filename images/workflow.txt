@@ -1,0 +1,18 @@
+
+1// made the map   $
+
+2// built the matrix $
+
+3// add ground function $
+
+4// add clouds function $
+
+5// add sideNavbar
+
+6// add tools
+
+7// add select color for the tool and error color
+
+8// change the grid size on smaller devices
+
+*// add responsive
