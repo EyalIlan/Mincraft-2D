@@ -7,7 +7,15 @@
 
 let matrix = []
 
+let Matriel = {
+    stone:0,
+    wood:0,
+    ground:0,
+    grass:0,
+    wood:0
+}
 
+let tool = 'ground'
 
 
 const start = () =>{
@@ -19,16 +27,32 @@ const start = () =>{
                 div.setAttribute('row',i)
                 div.setAttribute('col',j)
                 div.classList.add('sky')
+
+                div.addEventListener('click',tileClick)
+
+    
+
                 MainContainer.appendChild(div)
         }
     }
 }
 
 
-const makeground = () =>{
+const tileClick  = (e) =>{
+    
+    if(e.target.classList.value === tool){
+        console.log(e.target.classList.value)
+        Matriel[e.target.classList.value] += 1
+        e.target.classList.remove(tool)
+        e.target.classList.add('sky')
+    }
+    console.log(Matriel)
+}
+
+
+const makeground = (row) =>{
     for(let i=15;i<matrix.length;i++){
         for(let j=0;j<matrix[i].length;j++){
-            
             matrix[i][j].classList.remove('sky')
             matrix[i][j].classList.add('ground')
            
@@ -38,7 +62,7 @@ const makeground = () =>{
 } 
 
 
-const grass = () =>{
+const grass = (index) =>{
    
         for(let j=0;j<matrix[14].length;j++){
             
@@ -77,14 +101,7 @@ const stones = () =>{
 
 
 
-let Matriel = {
-    stone:0,
-    wood:0,
-    ground:0,
-    grass:0,
-    wood:0
 
-}
 
 
 start()

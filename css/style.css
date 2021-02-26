@@ -47,25 +47,89 @@ body{
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 
 
 .box{
-   margin-top: 5%;
-   width: 80%;
-   height: 20%;
+   margin-top: 15%;
+   width: 60%;
+   height: 10%;
    border: 2px solid white; 
    display: flex;
    align-items: center;
    justify-content: center;
-  
+   cursor: pointer;
+}
+
+.box:hover{
+    background-color: white;
+}
+.box:active{
+    background-color: blue;
+}
+
+.box img{
+    height: 70%;
+}
+
+#Matirels{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1rem;
+    /* margin: auto; */
+}
+
+#Matirels div{
+    
+    position: relative;
+    background-position: center;
+    background-size: contain;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
 }
 
 
-.box img{
+
+#Matirels div::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.5;
+    background-color:#333
     
-    height: 70%;
+}
+
+
+
+.btn{
+    background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 0;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #008CBA;
+}
+
+.btn:hover{
+    
 }
 
 .sky{
@@ -87,4 +151,8 @@ body{
 
 .stone{
     background-image: url('../images/rock.png');
+}
+
+.wood{
+    background-image: url(../images/wood.png);
 }

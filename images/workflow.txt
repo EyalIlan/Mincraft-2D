@@ -11,8 +11,9 @@
 
 6// add tools
 
+
 7// add select color for the tool and error color
 
 8// change the grid size on smaller devices
 
-*// add responsive
+*9// add responsive
