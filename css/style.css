@@ -129,7 +129,12 @@ body{
 }
 
 .btn:hover{
-    
+    background-color: #226d86;
+}
+
+.btn:active{
+    background-color: #0b7497;
+    transform: scale(0.96);
 }
 
 .sky{
@@ -155,4 +160,27 @@ body{
 
 .wood{
     background-image: url(../images/wood.png);
+}
+
+
+
+
+@media(max-width:700px){
+    
+    body{
+        display: block;
+    }
+    
+    #MainContainer{
+        display: grid;   
+        width: 100vw;
+        height: 100vh;
+        grid-template-columns: repeat(10,1fr); 
+        grid-template-rows: repeat(10,1fr); 
+        flex-wrap: wrap;
+    }
+    
+    /* #MainContainer div{
+        
+    } */
 }

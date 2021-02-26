@@ -1,9 +1,6 @@
 
 
-// const  MainContainer = document.querySelector('#MainContainer')
 
-// const area  = parseInt(window.getComputedStyle(MainContainer).width)
-// const height = parseInt(window.getComputedStyle(MainContainer).height)
 
 let matrix = []
 
@@ -15,13 +12,39 @@ let Matriel = {
     wood:0
 }
 
+// 20
+// 30
 let tool = 'ground'
 
 
-const start = () =>{
-    for(let i=0;i<20;i++){
+
+// const InitMedia = () =>{
+//     let query = window.matchMedia("(max-width:700px)")
+//     if(query.matches){
+//         start(20,20)
+//     }else{
+//         start(20,30)
+//     }
+// }
+
+
+
+
+
+const start = (row,col) => {
+
+    let query = window.matchMedia("(max-width:700px)")
+    if(query.matches){
+        row = 10
+        col = 10
+    }else{
+        row = 20
+        col = 30
+    }
+
+    for(let i=0;i<row;i++){
         matrix[i] = []
-        for(let j=0;j<30;j++){
+        for(let j=0;j<col;j++){
                 let div = document.createElement('div')
                 matrix[i][j] = div
                 div.setAttribute('row',i)
@@ -45,12 +68,10 @@ const tileClick  = (e) =>{
         Matriel[e.target.classList.value] += 1
         e.target.classList.remove(tool)
         e.target.classList.add('sky')
-    }
-    console.log(Matriel)
+    }  
 }
 
-
-const makeground = (row) =>{
+const makeground = () =>{
     for(let i=15;i<matrix.length;i++){
         for(let j=0;j<matrix[i].length;j++){
             matrix[i][j].classList.remove('sky')
@@ -61,9 +82,7 @@ const makeground = (row) =>{
 
 } 
 
-
 const grass = (index) =>{
-   
         for(let j=0;j<matrix[14].length;j++){
             
             matrix[14][j].classList.remove('sky')
@@ -82,9 +101,9 @@ const clouds = (row,colom) =>{
 
             matrix[row + i][colom+j].classList.remove('sky')
             matrix[row + i][colom+j].classList.add('cloud')
-            // matrix[3][3].classList.add('cloud')
+            
         }
-    }
+}
 
 }
 
@@ -103,11 +122,11 @@ const stones = () =>{
 
 
 
-
+// document.addEventListener('DOMContentLoaded',InitMedia);
 start()
 makeground()
 clouds(1,5)
-clouds(1,23)
+// clouds(1,23)
 grass()
 
 
