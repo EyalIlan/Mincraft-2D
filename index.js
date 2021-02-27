@@ -1,7 +1,7 @@
 
 const tools = document.querySelectorAll('.box')
 const Matirels = document.querySelectorAll('#Matirels div')
-
+const restart = document.querySelector('#restart')
 
 
 //matrix that hold all the values
@@ -21,17 +21,11 @@ let tool = '' // the tool that is in use
 let AddBlock = false //this var will check if you can add block
 
 
-Matirels.forEach(p =>{
-    p.addEventListener('click',()=>{
-        tool = (p.classList.value)
-        AddBlock = true
-    })
-})
 
 
 // start the playboard depends on the screen size
-const start = (row,col) => {
-
+const start = () => {
+   
     let query = window.matchMedia("(max-width:700px)")
     let groundRow = 6;
     
@@ -54,15 +48,20 @@ if(query.matches){
                 div.classList.add('sky')
 
                 div.addEventListener('click',tileClick)
-
-    
-
                 MainContainer.appendChild(div)
         }
     }
     grass(groundRow)
 }
 
+
+
+Matirels.forEach(p =>{
+    p.addEventListener('click',()=>{
+        tool = (p.classList.value)
+        AddBlock = true
+    })
+})
 
 
 // assign which tool is used
@@ -72,6 +71,27 @@ for(let i=0;i<tools.length;i++){
         AddBlock = false    
     })
 }
+
+
+//restart the game
+restart.addEventListener('click', () =>{
+    const MainConteiner = document.querySelectorAll('#MainContainer div')
+    for(let i=0;i<MainConteiner.length;i++){
+        MainConteiner[i].remove()
+    }
+    Matriel = {
+        stone:0,
+        wood:0,
+        ground:0,
+        grass:0
+    }
+    Matirels.forEach(p =>{
+        p.innerHTML = 0
+    })
+
+
+    start()
+})
 
 
 // take a tile from the board and add it to an object of matriels types
@@ -105,11 +125,6 @@ const UpdateMatriel = (ev) =>{
     })
 }
 
-
-// const TileAddSelectHandler = (type) =>{
-//     type.target.classList.remove('sky')
-//     type.target.classList.add('sky')
-// }
 
 
 
@@ -172,7 +187,6 @@ const stones = (index) =>{
 
 
 start()
-
 clouds(1,5)
 // clouds(4,1)
 

@@ -19,3 +19,5 @@
 *9// add responsive ->done
 
 10// add eventLisner on the tools
+
+11// add restart function to screen
