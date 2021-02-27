@@ -23,10 +23,10 @@ let AddBlock = false //this var will check if you can add block
 
 Matirels.forEach(p =>{
     p.addEventListener('click',()=>{
+        tool = (p.classList.value)
         AddBlock = true
     })
 })
-
 
 
 // start the playboard depends on the screen size
@@ -35,14 +35,14 @@ const start = (row,col) => {
     let query = window.matchMedia("(max-width:700px)")
     let groundRow = 6;
     
-    if(query.matches){
+if(query.matches){
         row = 20;
         col = 10;
         groundRow = 12
-    }else{
+}else{
        row = 20
        col = 30
-    }
+}
 
     for(let i=0;i<row;i++){
         matrix[i] = []
@@ -68,41 +68,51 @@ const start = (row,col) => {
 // assign which tool is used
 for(let i=0;i<tools.length;i++){
     tools[i].addEventListener('click',(p)=>{
-        tool = p.target.getAttribute('type')    
+        tool = p.target.getAttribute('type')
+        AddBlock = false    
     })
 }
 
 
 // take a tile from the board and add it to an object of matriels types
 const tileClick  = (e) =>{
-    console.log('clicked')
-    console.log(AddBlock)
+
     if(!AddBlock){
-        if(e.target.classList.value === tool){
+        if(e.target.classList.value === tool || tool === 'ground' && e.target.classList.value === 'grass'){
             Matriel[e.target.classList.value] += 1
             UpdateMatriel(e.target.classList.value)
-            e.target.classList.remove(tool)
+            e.target.classList.remove(e.target.classList.value)
             e.target.classList.add('sky')
         }
     }else{
-        co
+       if(Matriel[tool] > 0 && e.target.classList.value === 'sky'){
+         console.log(tool)
+         Matriel[tool] -= 1
+         UpdateMatriel(tool)
+         e.target.classList.remove('sky')
+         e.target.classList.add(tool)
+       }
     }
 
 }
 
-const TileAddSelectHandler = () =>{
-
-}
-
-
 const UpdateMatriel = (ev) =>{
     Matirels.forEach(p=>{
           if(ev === p.classList.value){
-              p.innerHTML = Matriel[ev]
+            p.innerHTML = Matriel[ev]
           }  
         
     })
 }
+
+
+// const TileAddSelectHandler = (type) =>{
+//     type.target.classList.remove('sky')
+//     type.target.classList.add('sky')
+// }
+
+
+
 
 const makeground = (index) =>{
     for(let i=index;i<matrix.length;i++){
