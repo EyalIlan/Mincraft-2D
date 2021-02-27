@@ -4,25 +4,28 @@ const Matirels = document.querySelectorAll('#Matirels div')
 
 
 
-
-
+//matrix that hold all the values
 let matrix = []
 
+
+// object 
 let Matriel = {
     stone:0,
     wood:0,
     ground:0,
     grass:0
-    
 }
 
 
-let tool = 'ground'
+let tool = '' // the tool that is in use
+let AddBlock = false //this var will check if you can add block
 
 
-
-
-
+Matirels.forEach(p =>{
+    p.addEventListener('click',()=>{
+        AddBlock = true
+    })
+})
 
 
 
@@ -72,14 +75,25 @@ for(let i=0;i<tools.length;i++){
 
 // take a tile from the board and add it to an object of matriels types
 const tileClick  = (e) =>{
-    if(e.target.classList.value === tool){
-        Matriel[e.target.classList.value] += 1
-        UpdateMatriel(e.target.classList.value)
-        e.target.classList.remove(tool)
-        e.target.classList.add('sky')
+    console.log('clicked')
+    console.log(AddBlock)
+    if(!AddBlock){
+        if(e.target.classList.value === tool){
+            Matriel[e.target.classList.value] += 1
+            UpdateMatriel(e.target.classList.value)
+            e.target.classList.remove(tool)
+            e.target.classList.add('sky')
+        }
+    }else{
+        co
     }
 
 }
+
+const TileAddSelectHandler = () =>{
+
+}
+
 
 const UpdateMatriel = (ev) =>{
     Matirels.forEach(p=>{
