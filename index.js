@@ -34,12 +34,15 @@ let tool = 'ground'
 const start = (row,col) => {
 
     let query = window.matchMedia("(max-width:700px)")
+    let groundRow = 6;
+    
     if(query.matches){
-        row = 10
-        col = 10
+        row = 20;
+        col = 10;
+        groundRow = 12
     }else{
-        row = 20
-        col = 30
+       row = 20
+       col = 30
     }
 
     for(let i=0;i<row;i++){
@@ -58,6 +61,8 @@ const start = (row,col) => {
                 MainContainer.appendChild(div)
         }
     }
+    // console.log(groundRow)
+    grass(groundRow)
 }
 
 
@@ -71,8 +76,8 @@ const tileClick  = (e) =>{
     }  
 }
 
-const makeground = () =>{
-    for(let i=15;i<matrix.length;i++){
+const makeground = (index) =>{
+    for(let i=index;i<matrix.length;i++){
         for(let j=0;j<matrix[i].length;j++){
             matrix[i][j].classList.remove('sky')
             matrix[i][j].classList.add('ground')
@@ -83,12 +88,14 @@ const makeground = () =>{
 } 
 
 const grass = (index) =>{
-        for(let j=0;j<matrix[14].length;j++){
-            
-            matrix[14][j].classList.remove('sky')
-            matrix[14][j].classList.add('grass')
+    console.log(index)
+        for(let j=0;j<matrix[0].length;j++){
+
+            matrix[index][j].classList.remove('sky')
+            matrix[index][j].classList.add('grass')
            
      }
+     makeground(index+1)
     
 }
 
@@ -108,7 +115,7 @@ const clouds = (row,colom) =>{
 }
 
 
-const stones = () =>{
+const stones = (index) =>{
 
     for(let i = 5;i<martix[0].length;i++){
 
@@ -122,12 +129,12 @@ const stones = () =>{
 
 
 
-// document.addEventListener('DOMContentLoaded',InitMedia);
+
 start()
-makeground()
+
 clouds(1,5)
 // clouds(1,23)
-grass()
+
 
 
 
