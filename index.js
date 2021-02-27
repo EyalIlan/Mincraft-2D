@@ -12,20 +12,12 @@ let Matriel = {
     wood:0
 }
 
-// 20
-// 30
+
 let tool = 'ground'
 
 
 
-// const InitMedia = () =>{
-//     let query = window.matchMedia("(max-width:700px)")
-//     if(query.matches){
-//         start(20,20)
-//     }else{
-//         start(20,30)
-//     }
-// }
+
 
 
 
@@ -61,7 +53,6 @@ const start = (row,col) => {
                 MainContainer.appendChild(div)
         }
     }
-    // console.log(groundRow)
     grass(groundRow)
 }
 
@@ -87,8 +78,17 @@ const makeground = (index) =>{
 
 } 
 
+const tools = document.querySelectorAll('.box')
+console.log(tools)
+
+for(let i=0;i<tools.length;i++){
+    tools[i].addEventListener('click',(p)=>{
+        console.log(p.target.getAttribute('type'))
+    })
+}
+
 const grass = (index) =>{
-    console.log(index)
+   
         for(let j=0;j<matrix[0].length;j++){
 
             matrix[index][j].classList.remove('sky')
@@ -133,7 +133,7 @@ const stones = (index) =>{
 start()
 
 clouds(1,5)
-// clouds(1,23)
+// clouds(4,1)
 
 
 

@@ -14,6 +14,8 @@
 
 7// add select color for the tool and error color
 
-8// change the grid size on smaller devices
+8// change the grid size on smaller devices ->done
 
-*9// add responsive
+*9// add responsive ->done
+
+10// add eventLisner on the tools

@@ -180,12 +180,21 @@ body{
         
     }
 
+
+
+
     #tools-bar{
         width: 100vw;
         height: 20vh;
         flex-direction: row;
         align-items: unset;
+        position: relative;
     } 
+
+    #tools-bar div{
+        margin: 4px;
+    }
+    
 
     .box{
         margin-top: 0;
@@ -195,32 +204,32 @@ body{
     }
 
     .btn{
-        
+        margin: 0;
+        width: 80px;
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+    
+   
+
+    #Navbar-buttons{
+        position: absolute;
+        left: 3px;
+        bottom: 0px;
+        display: flex;
+        height: 50px;
     }
 
-    /* .box{
-        margin-top: 15%;
-        width: 60%;
-        height: 10%;
-        border: 2px solid white; 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-     } */
+    #Navbar-buttons button{
+        margin: 5px;
+    }
 
 
-    /* #tools-bar{
-        display: inline-block;
-        width:15vw;
-        height: 100vh;
-        background: #312450;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    } */
-
+    #Matirels div{
+        height: 40px;
+        width: 40px;
+        font-size: 20px;
+    }
+   
 
 }
