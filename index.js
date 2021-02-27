@@ -1,4 +1,8 @@
 
+const tools = document.querySelectorAll('.box')
+const Matirels = document.querySelectorAll('#Matirels div')
+
+
 
 
 
@@ -8,8 +12,8 @@ let Matriel = {
     stone:0,
     wood:0,
     ground:0,
-    grass:0,
-    wood:0
+    grass:0
+    
 }
 
 
@@ -22,7 +26,7 @@ let tool = 'ground'
 
 
 
-
+// start the playboard depends on the screen size
 const start = (row,col) => {
 
     let query = window.matchMedia("(max-width:700px)")
@@ -57,14 +61,33 @@ const start = (row,col) => {
 }
 
 
+
+// assign which tool is used
+for(let i=0;i<tools.length;i++){
+    tools[i].addEventListener('click',(p)=>{
+        tool = p.target.getAttribute('type')    
+    })
+}
+
+
+// take a tile from the board and add it to an object of matriels types
 const tileClick  = (e) =>{
-    
     if(e.target.classList.value === tool){
-        console.log(e.target.classList.value)
         Matriel[e.target.classList.value] += 1
+        UpdateMatriel(e.target.classList.value)
         e.target.classList.remove(tool)
         e.target.classList.add('sky')
-    }  
+    }
+
+}
+
+const UpdateMatriel = (ev) =>{
+    Matirels.forEach(p=>{
+          if(ev === p.classList.value){
+              p.innerHTML = Matriel[ev]
+          }  
+        
+    })
 }
 
 const makeground = (index) =>{
@@ -78,14 +101,8 @@ const makeground = (index) =>{
 
 } 
 
-const tools = document.querySelectorAll('.box')
-console.log(tools)
 
-for(let i=0;i<tools.length;i++){
-    tools[i].addEventListener('click',(p)=>{
-        console.log(p.target.getAttribute('type'))
-    })
-}
+
 
 const grass = (index) =>{
    
