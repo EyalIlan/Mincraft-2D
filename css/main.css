@@ -1,0 +1,81 @@
+
+@font-face{
+    src: url('../css/fonts/Minecrafter.Reg.ttf');
+    font-family: minecraft;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    color: rgb(15, 11, 11);
+}
+
+h1{
+    font-size: 50px;
+}
+
+p{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#container{
+    height: 100vh;
+    background-image: url('https://i1.wp.com/www.pswallpapers.com/wp-content/uploads/2017/03/Minecraft-1080-Main.jpg?ssl=1');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'minecraft';
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    opacity: 0.9;
+}
+
+#container div{
+    width: 40vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    z-index: 1;
+}
+
+#container div::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.4;
+    z-index: -1;
+    background-color: black;
+}
+
+#container div img{
+    height: 80%;
+}
+
+.Spaceing{
+    margin-top: 35px;
+}
+
+.btn{
+    text-decoration: none;
+    background-color: rgb(39, 33, 33);
+    padding: 25px;
+    font-size: 20px;
+    color: white;
+}
+
+.btn:hover{
+    background-color:white;
+    color:rgb(39, 33, 33); 
+}
