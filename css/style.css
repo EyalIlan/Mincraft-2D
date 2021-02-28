@@ -164,8 +164,13 @@ body{
     background-image: url(../images/wood.png);
 }
 
+.tree{
+    background-image: url('../images/tree.png');
+}
 
-
+.leaf{
+    background-image: url('../images/leaf.png');
+}
 
 @media(max-width:700px){
     

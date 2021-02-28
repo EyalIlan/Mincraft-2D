@@ -21,3 +21,5 @@
 10// add eventLisner on the tools
 
 11// add restart function to screen
+
+12// making the layout of big screen and smaller screen
