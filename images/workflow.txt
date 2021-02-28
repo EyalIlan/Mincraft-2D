@@ -23,3 +23,5 @@
 11// add restart function to screen
 
 12// making the layout of big screen and smaller screen
+
+13// making an active class for the tools and tiles select

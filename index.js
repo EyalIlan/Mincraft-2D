@@ -1,7 +1,7 @@
 const tools = document.querySelectorAll(".box");
 const Matirels = document.querySelectorAll("#Matirels div");
 const restart = document.querySelector("#restart");
-
+const ToolsIcons = document.querySelectorAll('.box img')
 //matrix that hold all the values
 let matrix = [];
 
@@ -12,7 +12,7 @@ let Matriel = {
   ground: 0,
   grass: 0,
   tree: 0,
-  leaf: 0,
+  leaf: 0
 };
 
 let tool = ""; // the tool that is in use
@@ -88,6 +88,8 @@ Matirels.forEach((p) => {
   p.addEventListener("click", () => {
     tool = p.classList.value;
     AddBlock = true;
+    removeActive()
+    p.classList.add('MatirelActive')
   });
 });
 
@@ -95,6 +97,8 @@ Matirels.forEach((p) => {
 for (let i = 0; i < tools.length; i++) {
   tools[i].addEventListener("click", (p) => {
     tool = p.target.getAttribute("type");
+    removeActive()
+    p.target.classList.add('active')
     AddBlock = false;
   });
 }
@@ -137,8 +141,8 @@ const tileClick = (e) => {
     }
   } else {
     if (Matriel[tool] > 0 && e.target.classList.value === "sky") {
-      console.log(tool);
       Matriel[tool] -= 1;
+      console.log('--------------------')
       UpdateMatriel(tool);
       e.target.classList.remove("sky");
       e.target.classList.add(tool);
@@ -147,8 +151,13 @@ const tileClick = (e) => {
 };
 
 const UpdateMatriel = (ev) => {
-  Matirels.forEach((p) => {
-    if (ev === p.classList.value) {
+  
+    
+    Matirels.forEach((p) => {
+        let SP = p.classList.value.split(' ')
+        console.log(SP[0])
+    if (ev === SP[0]) {
+      
       p.innerHTML = Matriel[ev];
     }
   });
@@ -157,7 +166,7 @@ const UpdateMatriel = (ev) => {
 const drawObjects = (row, colom, type, object) => {
   for (let i = 0; i < object.length; i++) {
     for (let j = 0; j < object[i].length; j++) {
-      console.log(Array.isArray(type));
+     
       if (!Array.isArray(type)) {
         if (object[i][j] === 1) {
           matrix[row + i][colom + j].classList.remove(
@@ -172,7 +181,6 @@ const drawObjects = (row, colom, type, object) => {
           );
           matrix[row + i][colom + j].classList.add(type[0]);
         } else if (object[i][j] === 2) {
-          console.log("aaaaa");
           matrix[row + i][colom + j].classList.remove(
             matrix[row + i][colom + j].classList.value
           );
@@ -200,14 +208,17 @@ const grass = (index) => {
   makeground(index + 1);
 };
 
-const clouds = (row, colom) => {
-  for (let i = 0; i < 2; i++) {
-    for (let j = 0; j < 3; j++) {
-      matrix[row + i][colom + j].classList.remove("sky");
-      matrix[row + i][colom + j].classList.add("cloud");
-    }
-  }
-};
+const removeActive = () =>{
+    tools.forEach(p=>{
+        p.classList.remove('active')
+    })
+    ToolsIcons.forEach(p =>{
+        p.classList.remove('active')
+    })
+    Matirels.forEach(p =>{
+        p.classList.remove('MatirelActive')
+    })
+}
 
 start();
 

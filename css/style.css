@@ -63,9 +63,8 @@ body{
    cursor: pointer;
 }
 
-.box:hover{
-    background-color: white;
-}
+
+
 .box:active{
     background-color: blue;
 }
@@ -112,7 +111,7 @@ body{
 }
 
 .active{
-    background-color: blue;
+    background-color: rgb(6, 43, 255);
 }
 
 .btn{
@@ -138,6 +137,12 @@ body{
     background-color: #0b7497;
     transform: scale(0.96);
 }
+
+
+.MatirelActive{
+    border: 2px solid white;
+}
+
 
 .sky{
     background-color: rgb(119, 206, 246);
