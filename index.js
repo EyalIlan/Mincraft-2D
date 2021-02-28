@@ -47,6 +47,7 @@ let wood = [
 // start the playboard depends on the screen size
 const start = () => {
   let query = window.matchMedia("(max-width:700px)");
+  console.log()
   let groundRow;
 
   if (query.matches) {
@@ -74,14 +75,23 @@ const start = () => {
     }
   }
   grass(groundRow);
-  drawObjects(2, 5, "cloud", cloud);
-  drawObjects(2, 22, "cloud", cloud);
-  drawObjects(11, 5, "stone", stoneBlock);
-  drawObjects(11, 5, "stone", stoneBlock);
-  drawObjects(11, 22, "stone", stoneBlock);
-  drawObjects(8, 12, ["tree", "leaf"], tree);
-  drawObjects(8, 17, ["tree", "leaf"], tree);
-  drawObjects(9, 26, "wood", wood);
+  if(!query.matches){
+      drawObjects(2, 5, "cloud", cloud);
+      drawObjects(2, 22, "cloud", cloud);
+      drawObjects(11, 5, "stone", stoneBlock);
+      drawObjects(11, 5, "stone", stoneBlock);
+      drawObjects(11, 22, "stone", stoneBlock);
+      drawObjects(8, 12, ["tree", "leaf"], tree);
+      drawObjects(8, 17, ["tree", "leaf"], tree);
+      drawObjects(9, 26, "wood", wood);
+  }else{
+    drawObjects(2, 1, "cloud", [[1,1]]);
+    drawObjects(2, 7, "cloud", [[1,1]]);
+    drawObjects(6, 0, ["tree","leaf"],tree);
+    drawObjects(6, 7, ["tree","leaf"],tree);
+    drawObjects(10, 2, "stone",[[1,1,0],[1,1,1]]);
+    drawObjects(9, 5, "wood",[[0,1,0],[0,1,0],[0,1]]);
+  }
 };
 
 Matirels.forEach((p) => {
@@ -222,6 +232,4 @@ const removeActive = () =>{
 
 start();
 
-// clouds(4,1)
 
-//
