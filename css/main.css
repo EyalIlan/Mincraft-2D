@@ -12,7 +12,9 @@
 }
 
 body{
-    color: rgb(15, 11, 11);
+    text-align: center;
+    color: rgb(36, 24, 24);
+   
 }
 
 h1{
@@ -69,7 +71,7 @@ p{
 
 .btn{
     text-decoration: none;
-    background-color: rgb(39, 33, 33);
+    background-color: rgb(36, 24, 24);
     padding: 25px;
     font-size: 20px;
     color: white;
@@ -77,5 +79,44 @@ p{
 
 .btn:hover{
     background-color:white;
-    color:rgb(39, 33, 33); 
+    color:rgb(36, 24, 24); 
+}
+
+
+@media(max-width:700px){
+    h1{
+        font-size: 30px;
+    }
+    p{
+        font-size: 16px;
+    }
+
+   
+
+    #container{
+        justify-content:initial;
+        align-items: initial;
+    }
+
+    #container div{
+        width: 100vw;
+        height:17vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        z-index: 1;
+    }
+
+    
+#container div img{
+    height: 50%;
+}
+
+.btn{
+    padding: 20px;
+}
+
+
+
 }
